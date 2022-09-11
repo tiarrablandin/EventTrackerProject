@@ -22,7 +22,7 @@ public class RockServiceImpl implements RockService{
 	
 	@Override
 	public Rock findById(int id) {
-		return null;
+		return repo.findById(id).get();
 	}
 	
 	@Override
@@ -39,6 +39,8 @@ public class RockServiceImpl implements RockService{
 	@Override
 	public Rock update(int id, Rock rock) {
 		rock.setId(id);
+		System.out.println("id" + id);
+		System.out.println("rock" + rock);
 		return repo.saveAndFlush(rock);
 	}
 	

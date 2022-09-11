@@ -10,16 +10,55 @@
 
 	<h1>Welcome to Rock DB</h1>
 
+	<form name="rockForm">
+    	<input type="text" name="keyword" placeholder="keyword">
+    	<button name="search">Search</button>
+  	</form><br>
+  	
 	<div id="rockList"></div>
 
   	<div id="output">
     	<div id="rockData"></div>
   	</div>
+  	
+  	<br><br>
+  	
+  	<div>
+  	  <h3>Add Rock</h3>	
+	  <form name="addRockForm">
+	  <label for= "name">Name: </label><input type="text" name="name"><br>
+	  <label for= "element">Element: </label><textarea rows="2" cols="30" name="element"></textarea><br>
+	  <label for= "planet">Planet: </label><input type="text" name="planet"><br>
+	  <label for= "properties">Properties: </label><textarea rows="2" cols="30" name="properties"></textarea><br>
+	  <label for= "tips">Tips: </label><textarea rows="2" cols="30" name="tips"></textarea><br>
+	  <br>
+	  <button name="addRock">Add Rock</button>
+	  </form>
+  </div>
   
-	<form name="rockForm">
-    	<input type="text" name="keyword" placeholder="keyword">
-    	<button name="search">Search</button>
-  	</form><br>
+  <br><br><br>
+  
+  <div>
+  	<h3>Update Rock</h3>
+	  <form name="updateRockForm">
+	  <label for= "id">Id: </label><input type="number" name="id"><br>
+	  <label for= "name">Name: </label><input type="text" name="name"><br>
+	  <label for= "element">Element: </label><textarea rows="2" cols="30" name="element"></textarea><br>
+	  <label for= "planet">Planet: </label><input type="text" name="planet"><br>
+	  <label for= "properties">Properties: </label><textarea rows="2" cols="30" name="properties"></textarea><br>
+	  <label for= "tips">Tips: </label><textarea rows="2" cols="30" name="tips"></textarea><br>
+	  <br>
+	  <button id="updateRock" name="updateRock">Update Rock</button>
+	  </form>
+  </div>
+  
+  <br><br><br>
+  
+  <h3>Delete Rock</h3>
+  <form name="deleteById">
+        <input type="text" name="id" placeholder="rock ID">
+        <button name="deleteRock">Delete Rock</button>
+  </form>
   
 
 </body>

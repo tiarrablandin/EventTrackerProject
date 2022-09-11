@@ -49,12 +49,6 @@ class RockTest {
 		assertEquals("Moon, Sun", rock.getPlanet());
 		assertTrue(rock.getProperties().contains("mental clarity"));
 		assertEquals("sensitive to sunlight", rock.getTips());
-		assertEquals(11, rock.getCharged().getDayOfMonth());
-		assertEquals(8, rock.getCharged().getMonthValue());
-		assertEquals(2022, rock.getCharged().getYear());
-		assertEquals(1, rock.getCleansed().getDayOfMonth());
-		assertEquals(9, rock.getCleansed().getMonthValue());
-		assertEquals(2022, rock.getCleansed().getYear());
 	}
 
 }

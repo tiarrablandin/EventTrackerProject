@@ -25,10 +25,6 @@ public class Rock {
 	
 	private String tips;
 	
-	private LocalDateTime charged;
-	
-	private LocalDateTime cleansed;
-	
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	public Rock() {}
@@ -81,26 +77,10 @@ public class Rock {
 		this.tips = tips;
 	}
 
-	public LocalDateTime getCharged() {
-		return charged;
-	}
-
-	public void setCharged(LocalDateTime charged) {
-		this.charged = charged;
-	}
-
-	public LocalDateTime getCleansed() {
-		return cleansed;
-	}
-
-	public void setCleansed(LocalDateTime cleansed) {
-		this.cleansed = cleansed;
-	}
-
 	@Override
 	public String toString() {
 		return "Rock [id=" + id + ", name=" + name + ", element=" + element + ", planet=" + planet + ", properties="
-				+ properties + ", tips=" + tips + ", charged=" + charged + ", cleansed=" + cleansed + "]";
+				+ properties + ", tips=" + tips + "]";
 	}
 
 	@Override
