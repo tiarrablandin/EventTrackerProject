@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
@@ -8,7 +9,7 @@ import { Rock } from '../models/rock';
 })
 export class RockService {
   private baseUrl = 'http://localhost:8082/';
-  private url = this.baseUrl + 'api/rocks/';
+  private url = environment.baseUrl + 'api/rocks/';
 
   constructor(private http: HttpClient) { }
 
