@@ -1,0 +1,103 @@
+<nav class="navbar navbar-expand-lg navbar-dark shadow-5-strong">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Add Rock
+          </button>
+        </li>
+      </ul>
+      <div class="d-flex">
+        <label></label>
+        <input type="text" class="form-control" placeholder="search rocks" aria-describedby="helpId" [(ngModel)]="searchTerm">
+        <button class="btn btn-outline-light" (click)="search()">Search</button>
+      </div><br>
+    </div>
+  </div>
+</nav><br><br>
+
+<h1>{{title}} {{rockCount()}}</h1>
+
+<div *ngIf="!selected">
+
+  <table class="table table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>Name</th>
+        <th>Element</th>
+        <th>Planet</th>
+        <th>Properties</th>
+        <th>Tips</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let rock of rocks">
+        <td (click)="displayRock(rock)" class="">{{rock.name}}</td>
+        <td>{{rock.element}}</td>
+        <td>{{rock.planet}}</td>
+        <td>{{rock.properties}}</td>
+        <td>{{rock.tips}}</td>
+        <td><button class="btn btn-outline-warning" (click)="updateRock(rock)">Update</button></td>
+        <td><button class="btn btn-outline-danger" (click)="deleteRock(rock.id)">X</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div><br><br>
+
+<h3>Add New Rock</h3>
+
+<form *ngIf="addRock">
+  <input type="text" class="form-control" style="width: 300px;" name="name" placeholder="name" [(ngModel)]="newRock.name"><br>
+  <input type="text" class="form-control" style="width: 300px;" name="element" placeholder="element" [(ngModel)]="newRock.element"><br>
+  <input type="text" class="form-control" style="width: 300px;" name="planet" placeholder="planet" [(ngModel)]="newRock.planet"><br>
+  <input type="text" class="form-control" style="width: 300px;" name="properties" placeholder="properties" [(ngModel)]="newRock.properties"><br>
+  <input type="text" class="form-control" style="width: 300px;" name="tips" placeholder="tips" [(ngModel)]="newRock.tips"><br>
+  <button class="btn btn-outline-light" (click)="addRock()"> Add</button>
+</form><br><br>
+
+<div *ngIf="selected && !editRock">
+  <p>{{selected.id}}</p>
+  <p>{{selected.name}}</p>
+  <p>{{selected.element}}</p>
+  <p>{{selected.planet}}</p>
+  <p>{{selected.properties}}</p>
+  <p>{{selected.tips}}</p>
+  <button (click)="displayRock(selected)" class="btn btn-outline-danger btn-sm">Back</button>
+  <button class="btn btn-warning btn-sm" (click)="setEditRock()">Edit</button>
+</div>
+
+<form *ngIf="editRock">
+  Name: <input type="text" name="name"  [(ngModel)]="editRock.name"><br>
+  Element: <input type="text" name="element" [(ngModel)]="editRock.element"><br>
+  Planet: <input type="text" name="planet" [(ngModel)]="editRock.planet"><br>
+  Properties: <input type="text" name="properties" [(ngModel)]="editRock.properties"><br>
+  Tips: <input type="text" name="tips" [(ngModel)]="editRock.tips"><br><br>
+  <button class="btn btn-danger" (click)="editRock = null"> Cancel</button>
+  <button class="btn btn-warning" (click)="updateRock(editRock)"> Update</button>
+</form>
